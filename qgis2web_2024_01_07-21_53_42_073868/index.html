@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        map.createPane('pane_GoogleMaps_0');
+        map.getPane('pane_GoogleMaps_0').style.zIndex = 400;
+        var layer_GoogleMaps_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleMaps_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_GoogleMaps_0;
+        map.addLayer(layer_GoogleMaps_0);
+        map.createPane('pane_1_modified_1');
+        map.getPane('pane_1_modified_1').style.zIndex = 401;
+        var img_1_modified_1 = 'data/1_modified_1.png';
+        var img_bounds_1_modified_1 = [[25.268228425451206,121.49672498965175],[25.310472431669414,121.57911339939342]];
+        var layer_1_modified_1 = new L.imageOverlay(img_1_modified_1,
+                                              img_bounds_1_modified_1,
+                                              {pane: 'pane_1_modified_1'});
+        bounds_group.addLayer(layer_1_modified_1);
+        map.addLayer(layer_1_modified_1);
+        map.createPane('pane_23_modified_2');
+        map.getPane('pane_23_modified_2').style.zIndex = 402;
+        var img_23_modified_2 = 'data/23_modified_2.png';
+        var img_bounds_23_modified_2 = [[25.241342744143537,121.56218876548597],[25.3086998472348,121.67621080701386]];
+        var layer_23_modified_2 = new L.imageOverlay(img_23_modified_2,
+                                              img_bounds_23_modified_2,
+                                              {pane: 'pane_23_modified_2'});
+        bounds_group.addLayer(layer_23_modified_2);
+        map.addLayer(layer_23_modified_2);
+        map.createPane('pane_456_modified_3');
+        map.getPane('pane_456_modified_3').style.zIndex = 403;
+        var img_456_modified_3 = 'data/456_modified_3.png';
+        var img_bounds_456_modified_3 = [[25.154807643883284,121.60833432644937],[25.244388872471333,121.75139863481807]];
+        var layer_456_modified_3 = new L.imageOverlay(img_456_modified_3,
+                                              img_bounds_456_modified_3,
+                                              {pane: 'pane_456_modified_3'});
+        bounds_group.addLayer(layer_456_modified_3);
+        map.addLayer(layer_456_modified_3);
+        map.createPane('pane_789_modified_4');
+        map.getPane('pane_789_modified_4').style.zIndex = 404;
+        var img_789_modified_4 = 'data/789_modified_4.png';
+        var img_bounds_789_modified_4 = [[25.106987952758544,121.73088899597968],[25.16434386189548,121.88630500783461]];
+        var layer_789_modified_4 = new L.imageOverlay(img_789_modified_4,
+                                              img_bounds_789_modified_4,
+                                              {pane: 'pane_789_modified_4'});
+        bounds_group.addLayer(layer_789_modified_4);
+        map.addLayer(layer_789_modified_4);
+        map.createPane('pane_101112_modified_5');
+        map.getPane('pane_101112_modified_5').style.zIndex = 405;
+        var img_101112_modified_5 = 'data/101112_modified_5.png';
+        var img_bounds_101112_modified_5 = [[25.1851799102307,121.39352396483687],[25.27655220933316,121.50158386590427]];
+        var layer_101112_modified_5 = new L.imageOverlay(img_101112_modified_5,
+                                              img_bounds_101112_modified_5,
+                                              {pane: 'pane_101112_modified_5'});
+        bounds_group.addLayer(layer_101112_modified_5);
+        map.addLayer(layer_101112_modified_5);
+        map.createPane('pane_131415_modified_6');
+        map.getPane('pane_131415_modified_6').style.zIndex = 406;
+        var img_131415_modified_6 = 'data/131415_modified_6.png';
+        var img_bounds_131415_modified_6 = [[25.115885241892386,121.37120220695219],[25.185330746412173,121.49060249124693]];
+        var layer_131415_modified_6 = new L.imageOverlay(img_131415_modified_6,
+                                              img_bounds_131415_modified_6,
+                                              {pane: 'pane_131415_modified_6'});
+        bounds_group.addLayer(layer_131415_modified_6);
+        map.addLayer(layer_131415_modified_6);
+        map.createPane('pane_1620_modified_7');
+        map.getPane('pane_1620_modified_7').style.zIndex = 407;
+        var img_1620_modified_7 = 'data/1620_modified_7.png';
+        var img_bounds_1620_modified_7 = [[25.00219910261192,121.4107947431143],[25.117944413375668,121.53271790240139]];
+        var layer_1620_modified_7 = new L.imageOverlay(img_1620_modified_7,
+                                              img_bounds_1620_modified_7,
+                                              {pane: 'pane_1620_modified_7'});
+        bounds_group.addLayer(layer_1620_modified_7);
+        map.addLayer(layer_1620_modified_7);
+        map.createPane('pane_21_modified_8');
+        map.getPane('pane_21_modified_8').style.zIndex = 408;
+        var img_21_modified_8 = 'data/21_modified_8.png';
+        var img_bounds_21_modified_8 = [[24.987853038016485,121.42256250748771],[25.005171578529634,121.44895167264725]];
+        var layer_21_modified_8 = new L.imageOverlay(img_21_modified_8,
+                                              img_bounds_21_modified_8,
+                                              {pane: 'pane_21_modified_8'});
+        bounds_group.addLayer(layer_21_modified_8);
+        map.addLayer(layer_21_modified_8);
+        map.createPane('pane_222324_modified_9');
+        map.getPane('pane_222324_modified_9').style.zIndex = 409;
+        var img_222324_modified_9 = 'data/222324_modified_9.png';
+        var img_bounds_222324_modified_9 = [[24.939990880637776,121.87156187747235],[25.135342560313607,122.01578221044113]];
+        var layer_222324_modified_9 = new L.imageOverlay(img_222324_modified_9,
+                                              img_bounds_222324_modified_9,
+                                              {pane: 'pane_222324_modified_9'});
+        bounds_group.addLayer(layer_222324_modified_9);
+        map.addLayer(layer_222324_modified_9);
+        map.createPane('pane_2529_modified_10');
+        map.getPane('pane_2529_modified_10').style.zIndex = 410;
+        var img_2529_modified_10 = 'data/2529_modified_10.png';
+        var img_bounds_2529_modified_10 = [[24.942992249531507,120.94009907570252],[25.174298302430707,121.40286807007399]];
+        var layer_2529_modified_10 = new L.imageOverlay(img_2529_modified_10,
+                                              img_bounds_2529_modified_10,
+                                              {pane: 'pane_2529_modified_10'});
+        bounds_group.addLayer(layer_2529_modified_10);
+        map.addLayer(layer_2529_modified_10);
+        map.createPane('pane__modified_11');
+        map.getPane('pane__modified_11').style.zIndex = 411;
+        var img__modified_11 = 'data/_modified_11.png';
+        var img_bounds__modified_11 = [[24.086880361806646,120.45506228489066],[24.465433874279665,120.65554625202992]];
+        var layer__modified_11 = new L.imageOverlay(img__modified_11,
+                                              img_bounds__modified_11,
+                                              {pane: 'pane__modified_11'});
+        bounds_group.addLayer(layer__modified_11);
+        map.addLayer(layer__modified_11);
+        map.createPane('pane__modified_12');
+        map.getPane('pane__modified_12').style.zIndex = 412;
+        var img__modified_12 = 'data/_modified_12.png';
+        var img_bounds__modified_12 = [[24.46323342380475,120.60640310169124],[24.738516310665517,120.89973257278645]];
+        var layer__modified_12 = new L.imageOverlay(img__modified_12,
+                                              img_bounds__modified_12,
+                                              {pane: 'pane__modified_12'});
+        bounds_group.addLayer(layer__modified_12);
+        map.addLayer(layer__modified_12);
+        map.createPane('pane__modified_13');
+        map.getPane('pane__modified_13').style.zIndex = 413;
+        var img__modified_13 = 'data/_modified_13.png';
+        var img_bounds__modified_13 = [[24.730250579892637,120.84560138802765],[24.96060814574367,121.030228226656]];
+        var layer__modified_13 = new L.imageOverlay(img__modified_13,
+                                              img_bounds__modified_13,
+                                              {pane: 'pane__modified_13'});
+        bounds_group.addLayer(layer__modified_13);
+        map.addLayer(layer__modified_13);
+        map.createPane('pane__14');
+        map.getPane('pane__14').style.zIndex = 414;
+        var layer__14 = L.tileLayer.wmts('http://maps.nlsc.gov.tw/S_Maps/wmt', {
+            pane: 'pane__14',
+            layer: 'LANDSECT',
+            tilematrixSet: 'GoogleMapsCompatible',
+            format: 'image/png',
+            style: 'default',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            opacity: 1.0,
+            attribution: '',
+        });
+        map.addLayer(layer__14);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"地段外圍圖(段籍圖)": layer__14,"新竹_modified": layer__modified_13,"苗栗_modified": layer__modified_12,"台中_modified": layer__modified_11,"25~29_modified": layer_2529_modified_10,"22+23+24_modified": layer_222324_modified_9,"21_modified": layer_21_modified_8,"16~20_modified": layer_1620_modified_7,"13+14+15_modified": layer_131415_modified_6,"10+11+12_modified": layer_101112_modified_5,"7+8+9_modified": layer_789_modified_4,"4+5+6_modified": layer_456_modified_3,"2+3_modified": layer_23_modified_2,"1_modified": layer_1_modified_1,"Google Maps": layer_GoogleMaps_0,}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
